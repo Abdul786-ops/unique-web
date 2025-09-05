@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Mirage Experience - Spinzico Interactive Entertainment</title>
+    <meta name="description" content="Embark on an Arabian adventure with Spinzico's Desert Mirage Experience. Enjoy thrilling gameplay with stunning visuals and exciting rewards.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/orientation_utils.css" type="text/css">
+    <link rel="stylesheet" href="css/ios_fullscreen.css" type="text/css">
+    <style>
+        :root {
+            --primary: #6C40F7;
+            --secondary: #FF3E82;
+            --accent: #00E0B0;
+            --dark: #1A0933;
+            --light: #FFFFFF;
+            --gray: #F5F3FA;
+            --text-dark: #2D1953;
+            --text-light: #7B6B9C;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #00A3FF 100%);
+            --shadow-sm: 0 4px 12px rgba(108, 64, 247, 0.1);
+            --shadow-md: 0 8px 24px rgba(108, 64, 247, 0.15);
+            --shadow-lg: 0 12px 36px rgba(108, 64, 247, 0.2);
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --border-radius-xl: 32px;
+            --gold: #FFD700;
+            --arabian-gold: #D4AF37;
+            --arabian-red: #8B0000;
+            --arabian-blue: #003153;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-dark);
+    background-color: #f2f2f2; /* Light gray background */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 0;
+            z-index: 1000;
+            background-color: rgba(26, 9, 51, 0.95);;
+        }
+
+        header.scrolled {
+            background-color: rgba(26, 9, 51, 0.95);
+            padding: 16px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page content */
+        .page-content {
+            padding: 140px 0 80px;
+        }
+
+        .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    color: #6C40F7; /* Changed to primary color */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+}
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* Alert styling */
+        .alert {
+            border-radius: var(--border-radius);
+            border: none;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .alert-warning {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Remove any unwanted pattern or background from the game frame */
+.entertainment-iframe-container {
+    background-color: #fff; /* White container for better clarity */
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+        .entertainment-iframe-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .entertainment-iframe-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .entertainment-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Increased height for full visibility */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: #fff; /* Removed patterned background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+        /* Content cards */
+        .content-card {
+            background-color: var(--light);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem 2rem;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: auto;
+            position: relative;
+        }
+
+        .content-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--light);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(108, 64, 247, 0.35);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--light);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 224, 176, 0.35);
+        }
+
+        /* List styling */
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Game canvas styling */
+        #canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain; /* Keep the game in frame without cutting */
+    top: 0 !important;
+    left: 0 !important;
+    background: transparent; /* No background overlapping */
+}
+
+        #entertainment-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orientation-msg-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orientation-msg-text {
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .check-fonts {
+            position: absolute;
+            left: -1000px;
+            top: -1000px;
+        }
+
+        /* Loading spinner */
+        .entertainment-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(240, 237, 252, 0.8);
+            z-index: 10;
+            border-radius: var(--border-radius);
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: var(--accent);
+        }
+
+        /* Arabian Theme Elements */
+        .arabian-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path fill="%236C40F7" fill-opacity="0.05" d="M0 0h60v60H0z"/><path fill="%236C40F7" fill-opacity="0.1" d="M0 0h30v30H0z"/><path fill="%236C40F7" fill-opacity="0.1" d="M30 30h30v30H30z"/></svg>');
+        }
+
+        .arabian-border {
+            border: 2px solid var(--arabian-gold);
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+        }
+
+        .arabian-border:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid var(--arabian-gold);
+            border-radius: 12px;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .legal-notice {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .responsible-entertainment {
+            margin-top: 2rem;
+        }
+
+        .responsible-entertainment h5 {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .responsible-logos {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .responsible-logos img {
+            max-height: 30px;
+            border-radius: 5px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 968px) {
+            .nav-menu {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .entertainment-container {
+                height: 300px;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            .entertainment-iframe-container {
+                padding: 1.5rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--dark);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .entertainment-container {
+                height: 250px;
+            }
+            
+            .page-content {
+                padding: 120px 0 60px;
+            }
+        }
+    </style>
+</head>
+<body ondragstart="return false;" ondrop="return false;">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-dice-d20 logo-icon"></i>
+                SPINZICO
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="play.html" class="nav-link">Play</a></li>
+                <li><a href="disclaimer.html" class="nav-link">Disclaimer</a></li>
+                <li><a href="terms.html" class="nav-link">Terms</a></li>
+                <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Activities Page Content -->
+    <div class="page-content">
+        <div class="container">
+            <h2 class="section-title">Desert Mirage Experience</h2>
+            <div class="alert alert-warning text-center mx-auto" style="max-width: 800px;">
+                <i class="fas fa-exclamation-circle me-2"></i> <strong>Notice:</strong> This is a social entertainment experience intended for enjoyment purposes only. No financial transactions are involved.
+            </div>
+            
+            <div class="entertainment-iframe-container arabian-pattern">
+                <h3 class="text-center mb-4">Desert Mirage Adventure</h3>
+                <div class="entertainment-container">
+                    <!-- Client's entertainment container -->
+                    <div id="entertainment-wrapper">
+                        <div class="entertainment-loading">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading experience...</span>
+                            </div>
+                        </div>
+                        <div style=""></div>
+                        <div class="check-fonts">
+                            <p class="check-font-1">test 1</p>
+                        </div> 
+                        <canvas id="canvas" class='ani_hack' width="1500" height="600" style="position: relative; top:0px !important; left:0px !important;"> </canvas>
+                        
+                        <div data-orientation="landscape" class="orientation-msg-container"><p class="orientation-msg-text">Please rotate your device</p></div>
+                        <div id="block_entertainment" style="position: absolute; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; display:none"></div>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <p class="small">This Arabian-themed social entertainment experience is provided for enjoyment purposes only. No real money is involved.</p>
+                </div>
+            </div>
+
+            <div class="content-card arabian-border">
+                <h3>Embark on a Desert Journey</h3>
+                <p>Discover the mysteries of the ancient desert in this enchanting Arabian adventure! Explore golden sands, uncover hidden treasures, and experience the magic of mystical symbols. Watch for special bonus rounds that transport you to an oasis of entertainment with captivating features and rewarding surprises.</p>
+                <br>
+                <ul>
+                    <li>Press the SPIN button to begin your desert adventure</li>
+                    <li>Match symbols across the reels to reveal magical surprises</li>
+                    <li>Experience special features with mystical themes</li>
+                    <li>Enjoy vibrant visuals and authentic Arabian atmosphere</li>
+                    <li>Note: completely free entertainment—no real-money gameplay involved</li>
+                </ul>
+            </div>
+
+            <!-- Additional Content -->
+            <div class="content-card">
+                <h3>About Spinzico</h3>
+                <p>Spinzico is a captivating, secure, and completely free social entertainment platform designed for users 18 and older. Every experience is crafted purely for amusement, with no betting or financial transactions of any kind.</p>
+                
+                <p>All rewards, achievements, and milestones are virtual and carry no monetary value—they cannot be cashed out, exchanged, or redeemed for anything of financial value.</p>
+                
+                <p>We continuously enhance Spinzico to ensure a fair, transparent, and enjoyable experience for everyone. By participating, you acknowledge that this platform exists solely for leisure and entertainment purposes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Spinzico</h3>
+                    <p>Elevating entertainment through innovative gameplay and stunning visual experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="play.html">Play</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="#">Responsible Play</a></li>
+                        <li><a href="#">Age Restrictions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="legal-notice">
+                <p><strong>Important Notice:</strong> Spinzico is designed for users aged 18 and over. All activities on the platform are purely for entertainment and free to play. No real money is involved—there are no financial transactions of any kind.</p>
+            </div>
+            
+             <div class="responsible-entertainment">
+                <h5>Responsible Entertainment</h5>
+                <div class="responsible-logos">
+                    <a href="https://www.gamblingtherapy.org/" target="_blank">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>Gambling Therapy</text></svg>" alt="Support for responsible entertainment">
+                    </a>
+                    <a href="https://www.gambleaware.org/" target="_blank">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>GambleAware</text></svg>" alt="Entertainment awareness">
+                    </a>
+                    <a href="https://www.gamstop.co.uk/" target="_blank">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>GamStop</text></svg>" alt="Entertainment control">
+                    </a>
+                </div>
+            </div> <br>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Spinzico Entertainment. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Client's entertainment JS files -->
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/createjs-2015.11.26.min.js"></script>
+    <script type="text/javascript" src="js/howler.min.js"></script>
+    <script type="text/javascript" src="js/screenfull.js"></script>
+    <script type="text/javascript" src="js/platform.js"></script>
+    <script type="text/javascript" src="js/ios_fullscreen.js"></script>
+    <script type="text/javascript" src="js/ctl_utils.js"></script>
+    <script type="text/javascript" src="js/sprite_lib.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/CSlotSettings.js"></script>
+    <script type="text/javascript" src="js/CLang.min.js"></script>
+    <script type="text/javascript" src="js/CPreloader.js"></script>
+    <script type="text/javascript" src="js/CMain.js"></script>
+    <script type="text/javascript" src="js/CTextButton.js"></script>
+    <script type="text/javascript" src="js/CGfxButton.js"></script>
+    <script type="text/javascript" src="js/CToggle.js"></script>
+    <script type="text/javascript" src="js/CBetBut.js"></script>
+    <script type="text/javascript" src="js/CMenu.js"></script>
+    <script type="text/javascript" src="js/CGame.js"></script>
+    <script type="text/javascript" src="js/CReelColumn.js"></script>
+    <script type="text/javascript" src="js/CInterface.js"></script>
+    <script type="text/javascript" src="js/CPayTablePanel.js"></script>
+    <script type="text/javascript" src="js/CStaticSymbolCell.js"></script>
+    <script type="text/javascript" src="js/CTweenController.js"></script>
+    <script type="text/javascript" src="js/CMsgBox.js"></script>
+    <script type="text/javascript" src="js/CVector2.js"></script>
+    <script type="text/javascript" src="js/CFormatText.js"></script>
+    <script type="text/javascript" src="js/CWheelBonus.js"></script>
+    <script type="text/javascript" src="js/CBonusPanel.js"></script>
+    <script type="text/javascript" src="js/CLedsBonus.js"></script>
+    <script type="text/javascript" src="js/CSlotLogic.js"></script>
+    <script type="text/javascript" src="js/CCreditsPanel.js"></script>
+    <script type="text/javascript" src="js/CCTLText.js"></script>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Wait for the DOM to be fully loaded before initializing the game
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if all required game classes are defined
+            if (typeof CMain === 'undefined') {
+                console.error('CMain class is not defined. Check if all game scripts are loaded correctly.');
+                return;
+            }
+            
+            // Initialize the game with a small delay to ensure all resources are loaded
+            setTimeout(initGame, 500);
+        });
+        
+        // Initialize the Arabian-themed game
+        function initGame() {
+            try {
+                // Initialize the client's game with Arabian theme settings
+                var oMain = new CMain({
+                    win_occurrence:30,        //WIN PERCENTAGE.SET A VALUE FROM 0 TO 100.
+                    slot_cash: 100,          //THIS IS THE CURRENT SLOT CASH AMOUNT. THE GAME CHECKS IF THERE IS AVAILABLE CASH FOR WINNINGS.
+                    bonus_occurrence:15,      //SET BONUS OCCURRENCE PERCENTAGE IF PLAYER GET A WIN. SET A VALUE FROM 0 TO 100. (IF 100%, PLAYER GET A BONUS EVERYTIME THERE IS A WIN).
+                    min_reel_loop:0,          //NUMBER OF REEL LOOPS BEFORE SLOT STOPS  
+                    reel_delay: 2,            //NUMBER OF FRAMES TO DELAY THE REELS THAT START AFTER THE FIRST ONE
+                    time_show_win:2000,       //DURATION IN MILLISECONDS OF THE WINNING COMBO SHOWING
+                    time_show_all_wins: 2000, //DURATION IN MILLISECONDS OF ALL WINNING COMBO
+                    money:100,               //STARING CREDIT FOR THE USER
+                    min_bet:0.05,             //MINIMUM COIN FOR BET
+                    max_bet: 0.5,             //MAXIMUM COIN FOR BET
+                    max_hold:3,               //MAXIMUM NUMBER OF POSSIBLE HOLD ON REELS
+                    freespin_occurrence: 15,   //IF USER MUST WIN, SET THIS VALUE FOR FREESPIN OCCURRENCE
+                    freespin_symbol_num_occur:[50,30,20],//WHEN PLAYER GET FREESPIN, THIS ARRAY GET THE OCCURRENCE OF RECEIVING 3,4 OR 5 FREESPIN SYMBOLS IN THE WHEEL
+                    num_freespin: [4,6,8],     //THIS IS THE NUMBER OF FREESPINS IF IN THE FINAL WHEEL THERE ARE 3,4 OR 5 FREESPIN SYMBOLS
+                    bonus_prize:      [10,30,60,90,0,20,60,120,200,0,40,30,20,10,0,80,60,40,1000,0],//THIS IS THE LIST OF BONUS PRIZES. KEEP BEST PRIZE IN PENULTIMATE POSITION IN ARRAY
+                    bonus_prize_occur: [6, 6, 6, 5,6, 5, 4,  3,  1,5, 5, 6, 7, 5,4, 4, 5, 5,   1,4],//OCCURRENCE FOR EACH PRIZE IN BONUS_PRIZES. HIGHER IS THE NUMBER, MORE POSSIBILITY OF OUTPUT HAS THE PRIZE
+                    coin_bet:[0.05, 0.1,0.15,0.20,0.25,0.3,0.35,0.4,0.45,0.5], //COIN BET VALUES
+                    /***********PAYTABLE FOR ARABIAN THEME********************/
+                    //EACH SYMBOL PAYTABLE HAS 5 VALUES THAT INDICATES THE MULTIPLIER FOR X1,X2,X3,X4 OR X5 COMBOS
+                    paytable_symbol_1: [0,0,90,150,200], //PAYTABLE FOR SYMBOL 1 (GENIE LAMP)
+                    paytable_symbol_2: [0,0,80,110,160], //PAYTABLE FOR SYMBOL 2 (CAMEL)
+                    paytable_symbol_3: [0,0,70,100,150], //PAYTABLE FOR SYMBOL 3 (SCARAB)
+                    paytable_symbol_4: [0,0,50,80,110],  //PAYTABLE FOR SYMBOL 4 (PALM TREE)
+                    paytable_symbol_5: [0,0,40,60,80],   //PAYTABLE FOR SYMBOL 5 (PYRAMID)
+                    paytable_symbol_6: [0,0,30,50,70],   //PAYTABLE FOR SYMBOL 6 (SCIMITAR)
+                    paytable_symbol_7: [0,0,20,30,50],   //PAYTABLE FOR SYMBOL 7 (ALADDIN'S SLIPPERS)
+                    /*************************************/
+                    fullscreen:true,           //SET THIS TO FALSE IF YOU DON'T WANT TO SHOW FULLSCREEN BUTTON
+                    check_orientation:true,    //SET TO FALSE IF YOU DON'T WANT TO SHOW ORIENTATION ALERT ON MOBILE DEVICES
+                    show_credits:true,         //ENABLE/DISABLE CREDITS BUTTON IN THE MAIN SCREEN
+                    audio_enable_on_startup:false, //ENABLE/DISABLE AUDIO WHEN GAME STARTS 
+                    num_spin_ads_showing:10    //NUMBER OF SPIN TO COMPLETE, BEFORE TRIGGERING AD SHOWING.
+                });
+                
+                // Hide loading spinner when game is ready
+                setTimeout(function() {
+                        document.querySelector('.entertainment-loading').style.display = 'none';
+                }, 1000);
+                
+                $(oMain).on("recharge", function (evt) {
+                    //INSERT HERE YOUR RECHARGE SCRIPT THAT RETURN MONEY TO RECHARGE
+                    var iMoney = 100;
+                    if(s_oGame !== null){
+                        s_oGame.setMoney(iMoney);
+                    }
+                });
+                    
+                $(oMain).on("start_session", function (evt) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+
+                $(oMain).on("end_session", function (evt) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+                
+                $(oMain).on("bet_placed", function (evt, oBetInfo) {
+                    var iBet = oBetInfo.bet;
+                    var iTotBet = oBetInfo.tot_bet;
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+                
+                $(oMain).on("bonus_start", function (evt) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+
+                $(oMain).on("bonus_end", function (evt, iMoney) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+                
+                $(oMain).on("save_score", function (evt, iMoney) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+
+                $(oMain).on("show_interlevel_ad", function (evt) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+
+                $(oMain).on("share_event", function (evt, oData) {
+                    //...ADD YOUR CODE HERE EVENTUALLY
+                });
+                     
+                if (isIOS()) {
+                    setTimeout(function () {
+                        sizeHandler();
+                    }, 200);
+                } else {
+                    sizeHandler();
+                }
+            } catch (error) {
+                console.error('Error initializing game:', error);
+                // Hide loading spinner
+                document.querySelector('.entertainment-loading').style.display = 'none';
+                
+                // Display a user-friendly error message
+                document.getElementById('entertainment-wrapper').innerHTML = 
+                    '<div style="color: #2D1953; text-align: center; padding: 20px;">' +
+                    '<h3>Experience Loading Error</h3>' +
+                    '<p>Sorry, there was an issue loading the experience. Please refresh the page and try again.</p>' +
+                    '<button class="btn btn-accent mt-3" onclick="window.location.reload()">Reload Experience</button>' +
+                    '</div>';
+            }
+        }
+    </script>
+</body>
+</html>
